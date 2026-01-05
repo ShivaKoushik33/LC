@@ -19,7 +19,7 @@ class Solution {
         int ans=0;
         while(!q.isEmpty()){
             int a[]=q.poll();
-            System.out.println(a[0]+"  "+ a[1]+"----"+a[2]);
+            // System.out.println(a[0]+"  "+ a[1]+"----"+a[2]);
             int x=a[0];
             int y=a[1];
             visited[x][y]=1;
