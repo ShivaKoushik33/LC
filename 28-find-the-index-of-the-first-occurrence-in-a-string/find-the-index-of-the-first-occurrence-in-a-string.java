@@ -20,7 +20,7 @@ class Solution {
                     i=itr;
                     continue;
             }
-            if(x==y && j==(n)){
+            if(j==(n)){
                 ans=itr;
                 break;
             }
