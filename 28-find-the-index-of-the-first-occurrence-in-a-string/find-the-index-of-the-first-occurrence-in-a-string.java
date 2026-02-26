@@ -13,6 +13,10 @@ class Solution {
                 i++;
                 j++;
             }
+            if(j==(n)){
+                ans=itr;
+                break;
+            }
 
             if(x!=y){
                     j=0;
@@ -20,10 +24,7 @@ class Solution {
                     i=itr;
                     continue;
             }
-            if(j==(n)){
-                ans=itr;
-                break;
-            }
+            
 
 
 
