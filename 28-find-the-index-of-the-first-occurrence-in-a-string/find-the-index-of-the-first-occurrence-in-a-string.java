@@ -12,24 +12,14 @@ class Solution {
             if(x==y && j<n){
                 i++;
                 j++;
-                // System.out.println(x+" "+y);
             }
 
             if(x!=y){
-                // if(j>0){
-                //     j--;
-                // }
-                // else{
-                    // System.out.println(x+" "+y);
                     j=0;
                     itr++;
                     i=itr;
                     continue;
-                // }
             }
-            // if(x!=y && j==0){
-            //     i++;
-            // }
             if(x==y && j==(n)){
                 ans=itr;
                 break;
