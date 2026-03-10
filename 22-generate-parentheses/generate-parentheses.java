@@ -15,7 +15,7 @@ class Solution {
             return ;
         }
         if(left>=0 &&right>=0){
-            l.add(x);
+        l.add(x);
         generate(left-1,right,ans,l);
         l.remove(l.size()-1);
         l.add(y);
