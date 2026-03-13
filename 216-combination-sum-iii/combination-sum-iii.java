@@ -15,10 +15,10 @@ class Solution {
         }
         
         l.add(arr[i]);
-        k=k-1;
-        rec(i+1,arr,target-arr[i],ans,l,k);
+        // k=k-1;
+        rec(i+1,arr,target-arr[i],ans,l,k-1);
         l.remove(l.size()-1);
-        k=k+1;
+        // k=k+1;
         rec(i+1,arr,target,ans,l,k);
     }
 
