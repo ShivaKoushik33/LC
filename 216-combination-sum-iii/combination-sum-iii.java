@@ -34,7 +34,7 @@ class Solution {
         
 
         for(int i=ind;i<a.length;i++){
-            if (a[i] > n) break;
+            if(a[i]>n) break;
             l.add(a[i]);
             fn(i+1,k-1,n-a[i],a,ans,l);
             l.remove(l.size()-1);
