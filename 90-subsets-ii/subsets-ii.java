@@ -1,35 +1,23 @@
 class Solution {
-     static HashMap<String,Integer> hm=new HashMap<>();
-    public static void sub(int i,int arr[], ArrayList<Integer> l,List<List<Integer>> ans){
-        if(i==arr.length){
-            // Collections.sort(l);
-            String s="";
-            for(int x:l){
-                s=s+x;
+    void fn(int ind,int nums[],List<List<Integer>> ans,List<Integer> x){
+        // if(ind==nums.length){
+            ans.add(new ArrayList<>(x));
+            // return ;
+        // }
+        for(int i=ind;i<nums.length;i++){
+            if(i>ind && nums[i]==nums[i-1]){
+                continue;
             }
-            // System.out.println(s);
-            if(!hm.containsKey(s)){
-                hm.put(s,1);
-                ans.add(new ArrayList<>(l));
-            }
-            return ;
+            x.add(nums[i]);
+            fn(i+1,nums,ans,x);
+            x.remove(x.size()-1);
         }
-        
-        l.add(arr[i]);
-        sub(i+1,arr,l,ans);
-        l.remove(l.size()-1);
-        sub(i+1,arr,l,ans);
-
     }
-
     public List<List<Integer>> subsetsWithDup(int[] nums) {
-         ArrayList<Integer> l=new ArrayList<>();
-         List<List<Integer>> ans=new ArrayList<>();
-         hm.clear();
-         Arrays.sort(nums);
-        
-         
-        sub(0,nums,l,ans);
+        List<List<Integer>> ans=new ArrayList<>();
+        List<Integer> x=new ArrayList<>();
+        Arrays.sort(nums);
+        fn(0,nums,ans,x);
         return ans;
     }
 }
