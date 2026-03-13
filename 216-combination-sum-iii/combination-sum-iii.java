@@ -44,8 +44,8 @@ class Solution {
         int a[]={1,2,3,4,5,6,7,8,9};
         List<List<Integer>> ans=new ArrayList<>();
         List<Integer> l=new ArrayList<>();
-        // rec(0,a,n,ans,l,k);
-        fn(0,k,n,a,ans,l);
+        rec(0,a,n,ans,l,k);
+        // fn(0,k,n,a,ans,l);
         return ans;
     }
 }
