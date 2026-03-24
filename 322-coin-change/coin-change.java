@@ -1,41 +1,33 @@
 class Solution {
-   int dp[][];
-    public int fn(int coins[],int amount,int index,int count){
-        if(amount==0 ){
-            // ans=Math.min(ans,count);
-            return 0;
+    int dp[][];
+    public int fn(int i,int coins[],int amount){
+        if(i==0){
+            if(amount%coins[i]==0){
+                return amount/coins[i];
+            }
+            else{
+                return (int)1e9;
+            }
         }
-        if(dp[index][amount]!=-1){
-            return (dp[index][amount]);
+        if(dp[i][amount]!=-1){
+            return dp[i][amount];
         }
-        int take=(int)1e9;
-        if(index==coins.length){
-            return take;
+        int take=Integer.MAX_VALUE;
+        if(coins[i]<=amount){
+            take=1+fn(i,coins,amount-coins[i]);
         }
-        
-        if(amount>=coins[index]){
-            take=1+fn(coins,amount-coins[index],index,count+1);
-            // fn(coins,amount,index+1,count); 
-        }
-        // else{
-         int leave=fn(coins,amount,index+1,count);
-        // }
-
-        return dp[index][amount]=Math.min(take,leave);
+        int leave=fn(i-1,coins,amount);
+        return dp[i][amount]=Math.min(take,leave);
     }
     public int coinChange(int[] coins, int amount) {
-        int count=0;
-    dp=new int[coins.length+1][amount+1];
-        // ans=Integer.MAX_VALUE;
-
-       for(int i=0;i<=coins.length;i++){
-        for(int j=0;j<=amount;j++){
-            dp[i][j]=-1;
+        dp=new int[coins.length][amount+1];
+        for(int a[]:dp){
+            Arrays.fill(a,-1);
         }
-       }
-
-
-        int ans=fn(coins,amount,0,0);
-        return ans>= 1e9?-1:ans;
+        int ans=fn(coins.length-1,coins,amount);
+        if(ans==(int)1e9){
+            return -1;
+        }
+        return ans;
     }
 }
