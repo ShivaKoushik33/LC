@@ -46,7 +46,7 @@ class Solution {
         //     return false;
         // }
         // return true;
-        dp=new Boolean [s.length()][s.length()];
+        dp=new Boolean [s.length()][s.length()+1];
         return fn(0,s,0);
     }
 }
